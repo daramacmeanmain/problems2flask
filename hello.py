@@ -1,9 +1,10 @@
 from flask import Flask
+from flask import request
 app = Flask(__name__)
 
-@app.route('/name/<name>') 
-def fname(name): 
-	return 'Your name is ' + name
+@app.route('/name', methods=['GET']) 
+def fname(): 
+	return 'Your name is ' +  request.values["name"]
 	
 @app.route("/")
 def hello():
